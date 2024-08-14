@@ -1,16 +1,18 @@
 import { View, Text } from "react-native";
 import React from "react";
+import { calculateBrightness } from "../../hooks/useGenerateRandomColor";
 
 interface IProps {
-  color: string;
+  backgroundColor: string;
 }
 
-const Typography = ({ color }: IProps) => {
+const Typography = ({ backgroundColor }: IProps) => {
+  const color = calculateBrightness(backgroundColor);
   return (
     <Text
       style={{
         fontSize: 20,
-        color: color === "#ffffff" ? "#00000" : "#ffffff",
+        color: color,
         fontWeight: "bold",
       }}
     >

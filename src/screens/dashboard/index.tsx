@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Text, TouchableWithoutFeedback, View } from "react-native";
-import LottieView from "lottie-react-native";
+import { TouchableWithoutFeedback, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
-
 import { Container } from "../../components/container";
 import styles from "./dashboard.style";
 import useGenerateRandomColor from "../../hooks/useGenerateRandomColor";
@@ -28,7 +26,7 @@ const Dashboard = () => {
       <StatusBar backgroundColor={color} />
       <TouchableWithoutFeedback onPress={handleTouch}>
         <View style={{ ...styles.container, backgroundColor: color }}>
-          <Typography color={color} />
+          <Typography backgroundColor={color} />
           {showFireworks && <LottieFireWorks />}
         </View>
       </TouchableWithoutFeedback>
