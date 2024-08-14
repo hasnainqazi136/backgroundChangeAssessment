@@ -1,55 +1,35 @@
-import React, { useState } from "react";
-import {
-  Text,
-  TouchableWithoutFeedback,
-  View,
-  StyleSheet,
-  Dimensions,
-} from "react-native";
+import React, { useEffect, useState } from "react";
+import { Text, TouchableWithoutFeedback, View } from "react-native";
 import LottieView from "lottie-react-native";
 import { StatusBar } from "expo-status-bar";
 
-import { Card } from "../../components/card";
 import { Container } from "../../components/container";
 import styles from "./dashboard.style";
+import useGenerateRandomColor from "../../hooks/useGenerateRandomColor";
+import Typography from "../../components/typography";
+import LottieFireWorks from "../../components/LottieFireWorks";
 
 const Dashboard = () => {
-  const [backgroundColor, setBackgroundColor] = useState("#ffffff");
+  const { color, generateColor } = useGenerateRandomColor();
   const [showFireworks, setShowFireworks] = useState(false);
+  useEffect(() => {
+    generateColor();
+  }, []);
 
   const handleTouch = () => {
-    // Generate a random color
-    const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-    console.log("xx- randomColor", randomColor);
-    setBackgroundColor(randomColor);
-
+    generateColor();
     // Trigger fireworks animation
     setShowFireworks(true);
-    setTimeout(() => setShowFireworks(false), 3000); // Hide fireworks after 3 seconds
+    setTimeout(() => setShowFireworks(false), 4000);
   };
 
   return (
-    <Container backgroundColor={backgroundColor}>
-      <StatusBar backgroundColor={backgroundColor} />
+    <Container backgroundColor={"#" + color}>
+      <StatusBar backgroundColor={"#" + color} />
       <TouchableWithoutFeedback onPress={handleTouch}>
-        <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
-          <Text
-            style={{
-              fontSize: 20,
-              color: backgroundColor === "#ffffff" ? "#00000" : "#ffffff",
-              fontWeight: "bold",
-            }}
-          >
-            Hello There !
-          </Text>
-          {showFireworks && (
-            <LottieView
-              source={require("../../assets/fireworks.json")}
-              autoPlay
-              loop={false}
-              style={styles.fireworks}
-            />
-          )}
+        <View style={{ ...styles.container, backgroundColor: "#" + color }}>
+          <Typography color={color} />
+          {showFireworks && <LottieFireWorks />}
         </View>
       </TouchableWithoutFeedback>
     </Container>
