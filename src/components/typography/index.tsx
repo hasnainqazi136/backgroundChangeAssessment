@@ -10,7 +10,7 @@ const Typography = ({ color }: IProps) => {
     <Text
       style={{
         fontSize: 20,
-        color: "#" + color === "#ffffff" ? "#00000" : "#ffffff",
+        color: color === "#ffffff" ? "#00000" : "#ffffff",
         fontWeight: "bold",
       }}
     >

@@ -24,10 +24,10 @@ const Dashboard = () => {
   };
 
   return (
-    <Container backgroundColor={"#" + color}>
-      <StatusBar backgroundColor={"#" + color} />
+    <Container backgroundColor={color}>
+      <StatusBar backgroundColor={color} />
       <TouchableWithoutFeedback onPress={handleTouch}>
-        <View style={{ ...styles.container, backgroundColor: "#" + color }}>
+        <View style={{ ...styles.container, backgroundColor: color }}>
           <Typography color={color} />
           {showFireworks && <LottieFireWorks />}
         </View>
