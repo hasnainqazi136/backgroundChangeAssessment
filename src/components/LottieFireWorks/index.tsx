@@ -1,6 +1,6 @@
 import React from "react";
 import LottieView from "lottie-react-native";
-import styles from "./styles";
+import styles from "./lottieFireWorks.styles";
 
 const LottieFireWorks = () => {
   return (

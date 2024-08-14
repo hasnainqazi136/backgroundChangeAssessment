@@ -1,6 +1,7 @@
 import { View, Text } from "react-native";
 import React from "react";
 import { calculateBrightness } from "../../hooks/useGenerateRandomColor";
+import styles from "./typography.styles";
 
 interface IProps {
   backgroundColor: string;
@@ -11,9 +12,8 @@ const Typography = ({ backgroundColor }: IProps) => {
   return (
     <Text
       style={{
-        fontSize: 20,
+        ...styles.text,
         color: color,
-        fontWeight: "bold",
       }}
     >
       Hello There !

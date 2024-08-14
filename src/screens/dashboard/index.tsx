@@ -5,7 +5,7 @@ import { Container } from "../../components/container";
 import styles from "./dashboard.style";
 import useGenerateRandomColor from "../../hooks/useGenerateRandomColor";
 import Typography from "../../components/typography";
-import LottieFireWorks from "../../components/LottieFireWorks";
+import LottieFireWorks from "../../components/lottieFireWorks";
 
 const Dashboard = () => {
   const { color, generateColor } = useGenerateRandomColor();
